@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthComponent } from './components/header/auth/auth.component';
@@ -15,6 +15,19 @@ import { StaticticsCountComponent } from './components/search-results/search-car
 import { VideoNameComponent } from './components/search-results/search-card/video-name/video-name.component';
 import { MoreButtonComponent } from './components/search-results/search-card/more-button/more-button.component';
 
+
+// console.log(AppRoutingModule)
+// console.log(AppComponent)
+// console.log(HeaderComponent)
+// console.log(AuthComponent)
+// console.log(SearchComponent)
+// console.log(SortButtonComponent)
+// console.log(SettingButtonComponent)
+// console.log(SearchCardComponent)
+// console.log(ThumbnailComponent)
+// console.log(StaticticsCountComponent)
+// console.log(VideoNameComponent)
+// console.log(MoreButtonComponent)
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +45,7 @@ import { MoreButtonComponent } from './components/search-results/search-card/mor
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,9 +8,9 @@ describe('StaticticsCountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StaticticsCountComponent ]
+      declarations: [ StaticticsCountComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
