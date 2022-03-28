@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  @Output() toggleSort: EventEmitter<any> = new EventEmitter<any>();
+
+  toggle(){
+    this.toggleSort.emit();
+  }
+
 }
