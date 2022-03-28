@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthComponent } from './components/header/auth/auth.component';
 import { SearchComponent } from './components/header/search/search.component';
-import { SortButtonComponent } from './components/header/sort-button/sort-button.component';
+import { SortButtonComponent } from './components/sort-button/sort-button.component';
 import { SettingButtonComponent } from './components/header/setting-button/setting-button.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchCardComponent } from './components/search-results/search-card/search-card.component';
@@ -14,20 +14,11 @@ import { ThumbnailComponent } from './components/search-results/search-card/thum
 import { StaticticsCountComponent } from './components/search-results/search-card/statictics-count/statictics-count.component';
 import { VideoNameComponent } from './components/search-results/search-card/video-name/video-name.component';
 import { MoreButtonComponent } from './components/search-results/search-card/more-button/more-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
-// console.log(AppRoutingModule)
-// console.log(AppComponent)
-// console.log(HeaderComponent)
-// console.log(AuthComponent)
-// console.log(SearchComponent)
-// console.log(SortButtonComponent)
-// console.log(SettingButtonComponent)
-// console.log(SearchCardComponent)
-// console.log(ThumbnailComponent)
-// console.log(StaticticsCountComponent)
-// console.log(VideoNameComponent)
-// console.log(MoreButtonComponent)
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +36,10 @@ import { MoreButtonComponent } from './components/search-results/search-card/mor
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     // AppRoutingModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

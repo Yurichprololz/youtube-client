@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./sort-button.component.scss'],
 })
 export class SortButtonComponent  {
-
 }
