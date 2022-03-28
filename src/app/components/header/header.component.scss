@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .inner-container{
   display: flex;
   align-items: center;
@@ -5,6 +7,6 @@
 .container{
   display: flex;
   padding: 0 150px;
-  background-color: #E5E5E5;
+  background-color: $backgroundColor;
   justify-content: space-around;
 }
