@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import * as interfaces from '../../../../interfaces';
+import * as interfaces from '../../../shared/models/videos.model';
 
 @Component({
   selector: 'app-search-card',
@@ -8,20 +8,6 @@ import * as interfaces from '../../../../interfaces';
 })
 export class SearchCardComponent {
 
-  @Input() video :interfaces.Ivideo | undefined;
+  @Input() video :interfaces.IVideo | undefined;
 
-  // thumbnailUrl :string | undefined;
-
-  // statictic :interfaces.Istatistics | undefined;
-
-  // title :string | undefined;
-
-  // constructor(){
-  //   if (this.video !== undefined){
-  //     this.thumbnailUrl = this.video?.snippet?.thumbnails?.standard?.url;
-  //     this.statictic = this.video.statistics;
-  //     this.title = this.video.snippet.title;
-  //   }
-//
-  // }
 }

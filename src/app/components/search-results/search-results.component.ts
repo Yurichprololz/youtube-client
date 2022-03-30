@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import * as intefaces from '../../../interfaces';
-import mochResponces from '../../../moch-responces';
+import * as intefaces from '../../shared/models/videos.model';
+import mochResponces from '../../shared/moch-responces';
 
 @Component({
   selector: 'app-search-results',
@@ -8,14 +8,15 @@ import mochResponces from '../../../moch-responces';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  responce :intefaces.Iresponce;
+  responce :intefaces.IResponce;
 
-  videos :intefaces.Ivideo[];
+  videos :intefaces.IVideo[];
 
   constructor(){
     this.responce = mochResponces;
 
     this.videos = this.responce.items;
+
   }
 
 

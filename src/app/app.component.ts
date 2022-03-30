@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'youtube-client';
 
+  val = '';
+
   isSortShown = false;
 
   toggleSortShow(){
     this.isSortShown = !this.isSortShown;
   }
+
+
 }

@@ -1,37 +1,38 @@
-export interface Iposer {
+export interface IPoster {
   url: string,
   width: number,
   height: number
 }
 
-export interface Ithumbnails {
-  default:Iposer,
-  medium: Iposer,
-  high: Iposer,
-  standard: Iposer,
-  maxres: Iposer
+export interface IThumbnails {
+  default:IPoster,
+  medium: IPoster,
+  high: IPoster,
+  standard: IPoster,
+  maxres: IPoster
 }
 
-export interface Ilocalized{
+export interface ILocalized{
   title: string,
   description: string
 }
 
-export interface Isnippet {
+export type ISnippet = {
   publishedAt: string,
   channelId: string,
   title: string,
   description: string,
-  thumbnails: Ithumbnails,
+  thumbnails: IThumbnails,
   channelTitle: string,
   tags: string[],
   categoryId: string,
   liveBroadcastContent: string,
-  localized: Ilocalized,
+  defaultLanguage?: string,
+  localized: ILocalized,
   defaultAudioLanguage: string
-}
+};
 
-export interface Istatistics {
+export interface IStatistics {
   viewCount: string,
   likeCount: string,
   dislikeCount: string,
@@ -39,22 +40,22 @@ export interface Istatistics {
   commentCount: string
 }
 
-export interface Ivideo{
+export interface IVideo{
   kind: string,
   etag: string,
   id: string,
-  snippet: Isnippet,
-  statistics: Istatistics
+  snippet: ISnippet,
+  statistics: IStatistics
 }
 
-export interface IpageInfo{
+export interface IPageInfo{
   totalResults: number,
   resultsPerPage: number
 }
 
-export interface Iresponce {
+export interface IResponce {
   kind: string,
   etag: string,
-  pageInfo: IpageInfo,
-  items: Ivideo[]
+  pageInfo: IPageInfo,
+  items: IVideo[]
 }

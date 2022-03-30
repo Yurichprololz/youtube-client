@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import * as interfaces from '../../../../../interfaces';
+import * as interfaces from '../../../../shared/models/videos.model';
 
 @Component({
   selector: 'app-statictics-count',
@@ -7,5 +7,5 @@ import * as interfaces from '../../../../../interfaces';
   styleUrls: ['./statictics-count.component.scss'],
 })
 export class StaticticsCountComponent {
-  @Input() statictics: interfaces.Istatistics | undefined;
+  @Input() statictics: interfaces.IStatistics | undefined;
 }
