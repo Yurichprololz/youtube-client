@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-thumbnail',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./thumbnail.component.scss'],
 })
 export class ThumbnailComponent {
-
+  @Input() thumbnailUrl :string | undefined;
 }

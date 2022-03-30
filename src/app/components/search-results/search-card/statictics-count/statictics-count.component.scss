@@ -1,0 +1,19 @@
+.conteiner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.conteiner .statictics-text{
+  margin-right: 10px;
+  font-size: 10px;
+}
+
+.conteiner .mat-icon{
+  height: 16px;
+  width: 16px;
+}
+.conteiner .material-icons{
+  font-size: 16px;
+}

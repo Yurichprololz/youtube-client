@@ -1,1 +1,6 @@
-<p>search-card works!</p>
+<div class="card">
+  <app-thumbnail [thumbnailUrl] = 'this.video?.snippet?.thumbnails?.standard?.url'></app-thumbnail>
+  <app-statictics-count [statictics] = "this.video?.statistics"> </app-statictics-count>
+  <app-video-name [title] =" this.video?.snippet?.title"></app-video-name>
+  <app-more-button></app-more-button>
+</div>

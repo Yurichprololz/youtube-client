@@ -28,7 +28,7 @@ export interface Isnippet {
   categoryId: string,
   liveBroadcastContent: string,
   localized: Ilocalized,
-  defaultAudioLanguage: 'en-US' | 'en' | 'ru'
+  defaultAudioLanguage: string
 }
 
 export interface Istatistics {
