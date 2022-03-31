@@ -8,12 +8,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent {
   @Output() toggleSort: EventEmitter<void> = new EventEmitter<void>();
 
+  @Output() searchListener: EventEmitter<string> = new EventEmitter<string>();
+
   toggle(){
     this.toggleSort.emit();
   }
 
   search(value:string){
     console.log(value);
+    this.searchListener.emit(value);
   }
 
 }

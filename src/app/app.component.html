@@ -1,4 +1,4 @@
 <!-- <router-outlet></router-outlet> -->
-<app-header (toggleSort)="toggleSortShow()"></app-header>
+<app-header (toggleSort)="toggleSortShow()" (searchListener) = 'getSearchValue($event)'></app-header>
 <app-sort-button *ngIf="isSortShown"></app-sort-button>
-<app-search-results></app-search-results>
+<app-search-results [searchValue] = 'searchValue'></app-search-results>

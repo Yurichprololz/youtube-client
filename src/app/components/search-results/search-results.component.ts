@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as intefaces from '../../shared/models/videos.model';
 import mochResponces from '../../shared/moch-responces';
 
@@ -8,6 +8,8 @@ import mochResponces from '../../shared/moch-responces';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
+  @Input() searchValue :string | undefined;
+
   responce :intefaces.IResponce;
 
   videos :intefaces.IVideo[];

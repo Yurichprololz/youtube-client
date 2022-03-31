@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="isFound()">
   <app-thumbnail [thumbnailUrl] = 'this.video?.snippet?.thumbnails?.standard?.url'></app-thumbnail>
   <app-statictics-count [statictics] = "this.video?.statistics"> </app-statictics-count>
   <app-video-name [title] =" this.video?.snippet?.title"></app-video-name>
