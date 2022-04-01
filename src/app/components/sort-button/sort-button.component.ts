@@ -9,6 +9,10 @@ import { SortBy } from '@src/app/shared/models/sort.model';
 export class SortButtonComponent {
   @Output() OnSortValue : EventEmitter<SortBy> =  new EventEmitter();
 
+  @Output() filterByKeys : EventEmitter<string> =  new EventEmitter();
+
+  byKeys = '';
+
   sort :SortBy;
 
   changeSortByDate(){
@@ -23,5 +27,9 @@ export class SortButtonComponent {
 
   outputSortValue(){
     this.OnSortValue.emit(this.sort);
+  }
+
+  sendByKeys(){
+    this.filterByKeys.emit(this.byKeys);
   }
 }

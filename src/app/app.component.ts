@@ -15,6 +15,8 @@ export class AppComponent {
 
   sortBy :SortBy = undefined;
 
+  filterByKeys = '';
+
   toggleSortShow() {
     this.isSortShown = !this.isSortShown;
   }
@@ -25,5 +27,9 @@ export class AppComponent {
 
   getSortValue(value :SortBy) {
     this.sortBy = value;
+  }
+
+  getFilterByKeys(value :string) {
+    this.filterByKeys = value;
   }
 }

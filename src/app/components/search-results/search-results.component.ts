@@ -13,6 +13,8 @@ export class SearchResultsComponent {
 
   @Input() sortBy:SortBy | undefined;
 
+  @Input() filterByKeys!:string;
+
   responce :intefaces.IResponce;
 
   videos :intefaces.IVideo[];

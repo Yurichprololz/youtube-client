@@ -3,5 +3,5 @@
   <button (click)="changeSortByDate()" appSortArrows [sort] = 'sort' [isSortByView]="false">date</button>
   <button (click)="changeSortByView()" appSortArrows [sort] = 'sort' [isSortByView]="true">count of views</button>
   <span>by word or sentance</span>
-  <input type="text">
+  <input type="text" [(ngModel)]="byKeys" (input)="sendByKeys()">
 </div>

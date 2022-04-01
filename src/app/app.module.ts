@@ -24,6 +24,7 @@ import { ColorizeBorderDirective } from './directives/colorize-border.directive'
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SortByFilterPipe } from './pipes/sort-by-filter.pipe';
 import { SortArrowsDirective } from './directives/sort-arrows.directive';
+import { SortByKeysPipe } from './pipes/sort-by-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SortArrowsDirective } from './directives/sort-arrows.directive';
     SearchFilterPipe,
     SortByFilterPipe,
     SortArrowsDirective,
+    SortByKeysPipe,
   ],
   imports: [
     BrowserModule,
