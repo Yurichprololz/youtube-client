@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SortBy } from './shared/models/sort.model';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,17 @@ export class AppComponent {
 
   isSortShown = false;
 
+  sortBy :SortBy = undefined;
+
   toggleSortShow() {
     this.isSortShown = !this.isSortShown;
   }
 
   getSearchValue(value:string) {
     this.searchValue = value;
+  }
+
+  getSortValue(value :SortBy) {
+    this.sortBy = value;
   }
 }
