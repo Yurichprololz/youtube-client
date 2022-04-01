@@ -23,6 +23,7 @@ import { MoreButtonComponent } from './components/search-results/search-card/mor
 import { ColorizeBorderDirective } from './directives/colorize-border.directive';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SortByFilterPipe } from './pipes/sort-by-filter.pipe';
+import { SortArrowsDirective } from './directives/sort-arrows.directive';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SortByFilterPipe } from './pipes/sort-by-filter.pipe';
     ColorizeBorderDirective,
     SearchFilterPipe,
     SortByFilterPipe,
+    SortArrowsDirective,
   ],
   imports: [
     BrowserModule,
