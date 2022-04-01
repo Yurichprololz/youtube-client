@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SortBy } from './shared/models/sort.model';
+import { SortBy } from '@shared/models/sort.model';
 
 @Component({
   selector: 'app-root',

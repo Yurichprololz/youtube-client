@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SortBy } from '@src/app/shared/models/sort.model';
+import { SortBy } from '@shared/models/sort.model';
 
 @Component({
   selector: 'app-sort-button',

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IVideo } from '../shared/models/videos.model';
+import { IVideo } from '@shared/models/videos.model';
 
 @Pipe({
   name: 'searchFilter',

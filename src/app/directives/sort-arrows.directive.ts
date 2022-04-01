@@ -1,5 +1,5 @@
 import {  Directive, ElementRef, Input, OnChanges, Renderer2 } from '@angular/core';
-import { SortBy } from '../shared/models/sort.model';
+import { SortBy } from '@shared/models/sort.model';
 
 @Directive({
   selector: '[appSortArrows]',

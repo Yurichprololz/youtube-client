@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import * as intefaces from '../../shared/models/videos.model';
-import mochResponces from '../../shared/moch-responces';
+import * as intefaces from '@shared/models/videos.model';
+import mochResponces from '@shared/moch-responces';
 import { SortBy } from '@src/app/shared/models/sort.model';
 
 @Component({

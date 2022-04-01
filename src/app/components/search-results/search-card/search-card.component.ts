@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import * as interfaces from '@app/shared/models/videos.model';
+import * as interfaces from '@shared/models/videos.model';
 
 @Component({
   selector: 'app-search-card',

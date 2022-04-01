@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SortBy } from '../shared/models/sort.model';
-import { IVideo } from '../shared/models/videos.model';
+import { SortBy } from '@shared/models/sort.model';
+import { IVideo } from '@shared/models/videos.model';
 
 @Pipe({
   name: 'sortByFilter',
