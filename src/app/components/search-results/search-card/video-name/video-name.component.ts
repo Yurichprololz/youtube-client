@@ -5,7 +5,6 @@ import { Component, Input } from '@angular/core';
   templateUrl: './video-name.component.html',
   styleUrls: ['./video-name.component.scss'],
 })
-export class VideoNameComponent  {
+export class VideoNameComponent {
   @Input() title:string | undefined;
-
 }

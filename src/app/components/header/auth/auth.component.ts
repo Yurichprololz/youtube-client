@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent  {
+export class AuthComponent {
   name:string;
 
-  constructor(){
+  constructor() {
     this.name = localStorage.getItem('name') || 'Your name';
   }
 }

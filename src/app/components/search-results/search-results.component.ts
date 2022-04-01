@@ -14,12 +14,9 @@ export class SearchResultsComponent {
 
   videos :intefaces.IVideo[];
 
-  constructor(){
+  constructor() {
     this.responce = mochResponces;
 
     this.videos = this.responce.items;
-
   }
-
-
 }

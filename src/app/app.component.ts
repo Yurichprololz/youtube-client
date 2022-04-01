@@ -12,13 +12,11 @@ export class AppComponent {
 
   isSortShown = false;
 
-  toggleSortShow(){
+  toggleSortShow() {
     this.isSortShown = !this.isSortShown;
   }
 
-  getSearchValue(value:string){
+  getSearchValue(value:string) {
     this.searchValue = value;
   }
-
-
 }

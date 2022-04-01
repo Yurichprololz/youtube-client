@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 // import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthComponent } from './components/header/auth/auth.component';
@@ -15,12 +19,9 @@ import { ThumbnailComponent } from './components/search-results/search-card/thum
 import { StaticticsCountComponent } from './components/search-results/search-card/statictics-count/statictics-count.component';
 import { VideoNameComponent } from './components/search-results/search-card/video-name/video-name.component';
 import { MoreButtonComponent } from './components/search-results/search-card/more-button/more-button.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { ColorizeBorderDirective } from './directives/colorize-border.directive';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ColorizeBorderDirective } from './directives/colorize-border.directive'
     VideoNameComponent,
     MoreButtonComponent,
     ColorizeBorderDirective,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,

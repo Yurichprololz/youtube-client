@@ -1,6 +1,6 @@
-import { Directive, ElementRef, Input, Renderer2/* , OnInit */ } from '@angular/core';
-import { OnInit } from '../../../node_modules/@angular/core/core';
-
+import {
+  Directive, ElementRef, Input, Renderer2, OnInit,
+} from '@angular/core';
 
 @Directive({
   selector: '[appColorizeBorder]',
@@ -8,18 +8,18 @@ import { OnInit } from '../../../node_modules/@angular/core/core';
 export class ColorizeBorderDirective implements OnInit {
   @Input('appColorizeBorder') date:string | undefined;
 
-  constructor( private element :ElementRef, private ref: Renderer2) { }
+  constructor(private element :ElementRef, private ref: Renderer2) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.highLight();
   }
 
-  highLight(){
+  highLight() {
     const color = this.getColor();
     this.ref.setStyle(this.element.nativeElement, 'border-color', color);
   }
 
-  getColor() :string{
+  getColor() :string {
     if (!this.date) return 'yellow';
     const now = new Date();
     const publishedDate = new Date(this.date);
@@ -27,13 +27,13 @@ export class ColorizeBorderDirective implements OnInit {
     const dateAfterMonth = new Date(publishedDate.setMonth(publishedDate.getMonth() + 1));
     const dateAfterHalfYear = new Date(publishedDate.setMonth(publishedDate.getMonth() + 6));
 
-    if (dateAfterHalfYear < now){
+    if (dateAfterHalfYear < now) {
       return 'red';
     }
-    if  (dateAfterMonth < now){
+    if (dateAfterMonth < now) {
       return 'yellow';
     }
-    if (dateAfterWeek < now){
+    if (dateAfterWeek < now) {
       return 'green';
     }
     return 'blue';

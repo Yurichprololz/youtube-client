@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './sort-button.component.html',
   styleUrls: ['./sort-button.component.scss'],
 })
-export class SortButtonComponent  {
+export class SortButtonComponent {
 }

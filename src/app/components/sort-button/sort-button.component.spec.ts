@@ -8,7 +8,7 @@ describe('SortButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SortButtonComponent ],
+      declarations: [SortButtonComponent],
     })
       .compileComponents();
   });

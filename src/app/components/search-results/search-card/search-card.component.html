@@ -1,4 +1,4 @@
-<div [appColorizeBorder] = 'video?.snippet?.publishedAt' class="card" *ngIf="isFound()">
+<div [appColorizeBorder] = 'video?.snippet?.publishedAt' class="card">
   <app-thumbnail [thumbnailUrl] = 'video?.snippet?.thumbnails?.standard?.url'></app-thumbnail>
   <app-statictics-count [statictics] = "video?.statistics"> </app-statictics-count>
   <app-video-name [title] =" video?.snippet?.title"></app-video-name>

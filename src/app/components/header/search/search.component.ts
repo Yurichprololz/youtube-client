@@ -5,13 +5,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent  {
+export class SearchComponent {
   value:string = '';
 
   @Output() searchListeter: EventEmitter<string> = new EventEmitter<string>();
 
-  changeListeter(){
+  changeListeter() {
     this.searchListeter.emit(this.value);
   }
-
 }
