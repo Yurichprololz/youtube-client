@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NotFoundComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -21,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    NotFoundComponent,
   ],
 })
 export class SharedModule { }
