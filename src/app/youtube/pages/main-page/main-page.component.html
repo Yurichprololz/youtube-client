@@ -1,0 +1,10 @@
+<app-header (toggleSort)="toggleSortShow()" (searchListener) = 'getSearchValue($event)'></app-header>
+<app-sort-button
+*ngIf="isSortShown"
+(OnSortValue)="getSortValue($event)"
+(filterByKeys)="getFilterByKeys($event)"
+></app-sort-button>
+<app-search-results
+[searchValue] = 'searchValue'
+[sortBy] = 'sortBy'
+[filterByKeys] = 'filterByKeys'></app-search-results>
