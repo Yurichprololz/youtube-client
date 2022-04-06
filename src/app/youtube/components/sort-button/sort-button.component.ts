@@ -32,4 +32,5 @@ export class SortButtonComponent {
   sendByKeys(){
     this.filterByKeys.emit(this.byKeys);
   }
+
 }

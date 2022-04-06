@@ -11,9 +11,6 @@ import { SortBy } from '@src/app/shared/models/sort.model';
 export class MainPageComponent implements OnInit, OnDestroy  {
   constructor(private ToggleS:ToggleButtonService){}
 
-  searchValue = '';
-
-
   sortBy :SortBy = undefined;
 
   filterByKeys = '';
@@ -22,10 +19,6 @@ export class MainPageComponent implements OnInit, OnDestroy  {
 
   getFilterByKeys(value :string) {
     this.filterByKeys = value;
-  }
-
-  getSearchValue(value:string) {
-    this.searchValue = value;
   }
 
   getSortValue(value :SortBy) {

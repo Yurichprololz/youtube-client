@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToggleButtonService } from '../../services/toggle-button.service';
 
 @Component({
@@ -12,13 +12,13 @@ export class HeaderComponent {
 
   // @Output() toggleSort: EventEmitter<void> = new EventEmitter<void>();
 
-  @Output() searchListener: EventEmitter<string> = new EventEmitter<string>();
+  // @Output() searchListener: EventEmitter<string> = new EventEmitter<string>();
 
   toggle() {
     this.ToggleS.toggleEmit.emit();
   }
 
-  search(value:string) {
-    this.searchListener.emit(value);
-  }
+  // search(value:string) {
+  //   this.searchListener.emit(value);
+  // }
 }

@@ -4,7 +4,7 @@ import { AuthComponent } from './compnents/auth/auth.component';
 import { HeaderComponent } from './compnents/header/header.component';
 import { SearchComponent } from './compnents/search/search.component';
 import { SettingButtonComponent } from './compnents/setting-button/setting-button.component';
-import { SortButtonComponent } from './compnents/sort-button/sort-button.component';
+import { SortButtonComponent } from '../youtube/components/sort-button/sort-button.component';
 import { SharedModule } from '../shared/shared.module';
 import { SortArrowsDirective } from './directives/sort-arrows.directive';
 
