@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ToggleButtonService } from '../../services/toggle-button.service';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +7,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() toggleSort: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private ToggleS :ToggleButtonService){}
+
+  // @Output() toggleSort: EventEmitter<void> = new EventEmitter<void>();
 
   @Output() searchListener: EventEmitter<string> = new EventEmitter<string>();
 
   toggle() {
-    this.toggleSort.emit();
+    this.ToggleS.toggleEmit.emit();
   }
 
   search(value:string) {

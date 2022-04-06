@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ToggleButtonService } from '@src/app/core/services/toggle-button.service';
 import { SortBy } from '@src/app/shared/models/sort.model';
 
 @Component({
@@ -7,17 +8,20 @@ import { SortBy } from '@src/app/shared/models/sort.model';
   styleUrls: ['./main-page.component.scss'],
 })
 
-export class MainPageComponent  {
+export class MainPageComponent implements OnInit, OnDestroy  {
+  constructor(private ToggleS:ToggleButtonService){}
+
   searchValue = '';
 
-  isSortShown = false;
 
   sortBy :SortBy = undefined;
 
   filterByKeys = '';
 
-  toggleSortShow() {
-    this.isSortShown = !this.isSortShown;
+  isSortShown = false;
+
+  getFilterByKeys(value :string) {
+    this.filterByKeys = value;
   }
 
   getSearchValue(value:string) {
@@ -28,8 +32,16 @@ export class MainPageComponent  {
     this.sortBy = value;
   }
 
-  getFilterByKeys(value :string) {
-    this.filterByKeys = value;
+  toggle(){
+    this.isSortShown = this.ToggleS.toggle();
+  }
+
+  ngOnInit() {
+    this.ToggleS.toggleEmit.subscribe(() => this.toggle());
+  }
+
+  ngOnDestroy(): void {
+    this.ToggleS.toggleEmit.unsubscribe();
   }
 
 }
