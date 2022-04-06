@@ -1,9 +1,7 @@
 <app-sort-button
 *ngIf="isSortShown"
-(OnSortValue)="getSortValue($event)"
 (filterByKeys)="getFilterByKeys($event)"
 ></app-sort-button>
 <app-search-results
-[sortBy] = 'sortBy'
 [filterByKeys] = 'filterByKeys'></app-search-results>
-<!-- [searchValue] = 'searchValue' -->
+<!-- [searchValue] = 'searchValue' (OnSortValue)="getSortValue($event)"  [sortBy] = 'sortBy'-->

@@ -6,7 +6,7 @@ import { SearchComponent } from './compnents/search/search.component';
 import { SettingButtonComponent } from './compnents/setting-button/setting-button.component';
 import { SortButtonComponent } from '../youtube/components/sort-button/sort-button.component';
 import { SharedModule } from '../shared/shared.module';
-import { SortArrowsDirective } from './directives/sort-arrows.directive';
+import { SortArrowsDirective } from '../youtube/directives/sort-arrows.directive';
 
 
 

@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ToggleButtonService } from '@src/app/core/services/toggle-button.service';
-import { SortBy } from '@src/app/shared/models/sort.model';
 
 @Component({
   selector: 'app-main-page',
@@ -11,18 +10,12 @@ import { SortBy } from '@src/app/shared/models/sort.model';
 export class MainPageComponent implements OnInit, OnDestroy  {
   constructor(private ToggleS:ToggleButtonService){}
 
-  sortBy :SortBy = undefined;
-
   filterByKeys = '';
 
   isSortShown = false;
 
   getFilterByKeys(value :string) {
     this.filterByKeys = value;
-  }
-
-  getSortValue(value :SortBy) {
-    this.sortBy = value;
   }
 
   toggle(){

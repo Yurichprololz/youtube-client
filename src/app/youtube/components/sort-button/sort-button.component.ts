@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SortBy } from '@shared/models/sort.model';
+import { SortDirectionService } from '../../services/sort-direction.service';
 
 @Component({
   selector: 'app-sort-button',
@@ -7,26 +7,18 @@ import { SortBy } from '@shared/models/sort.model';
   styleUrls: ['./sort-button.component.scss'],
 })
 export class SortButtonComponent {
-  @Output() OnSortValue : EventEmitter<SortBy> =  new EventEmitter();
+  constructor(private direction :SortDirectionService){}
 
   @Output() filterByKeys : EventEmitter<string> =  new EventEmitter();
 
   byKeys = '';
 
-  sort :SortBy;
-
   changeSortByDate(){
-    this.sort = this.sort === 'askDate' ? 'descDate' : 'askDate';
-    this.outputSortValue();
+    this.direction.changeSortByDate();
   }
 
   changeSortByView(){
-    this.sort = this.sort === 'askView' ? 'descView' : 'askView';
-    this.outputSortValue();
-  }
-
-  outputSortValue(){
-    this.OnSortValue.emit(this.sort);
+    this.direction.changeSortByView();
   }
 
   sendByKeys(){

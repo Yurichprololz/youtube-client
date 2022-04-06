@@ -3,6 +3,7 @@ import * as intefaces from '@shared/models/videos.model';
 import mochResponces from '@shared/moch-responces';
 import { SortBy } from '@src/app/shared/models/sort.model';
 import { SearchService } from '@src/app/core/services/search.service';
+import { SortDirectionService } from '../../services/sort-direction.service';
 
 @Component({
   selector: 'app-search-results',
@@ -13,7 +14,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
   // @Input() searchValue :string | undefined;
   searchValue :string = '';
 
-  @Input() sortBy:SortBy | undefined;
+  sortBy :SortBy;
 
   @Input() filterByKeys!:string;
 
@@ -21,7 +22,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
 
   videos :intefaces.IVideo[];
 
-  constructor(private searchS :SearchService) {
+  constructor(private searchS :SearchService, private sortService :SortDirectionService) {
     this.responce = mochResponces;
 
     this.videos = this.responce.items;
@@ -31,9 +32,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
     this.searchS.searchEmit.subscribe((value) => {
       this.searchValue = value;
     });
+    this.sortService.directionEmit.subscribe(() => {
+      this.sortBy = this.sortService.getValue();
+    });
   }
 
   ngOnDestroy(): void {
     this.searchS.searchEmit.unsubscribe();
+    this.sortService.directionEmit.unsubscribe();
   }
 }
