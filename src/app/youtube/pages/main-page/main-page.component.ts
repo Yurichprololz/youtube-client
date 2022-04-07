@@ -8,26 +8,20 @@ import { ToggleButtonService } from '@src/app/core/services/toggle-button.servic
 })
 
 export class MainPageComponent implements OnInit, OnDestroy  {
-  constructor(private ToggleS:ToggleButtonService){}
-
-  filterByKeys = '';
+  constructor(private ToggleService:ToggleButtonService){}
 
   isSortShown = false;
 
-  getFilterByKeys(value :string) {
-    this.filterByKeys = value;
-  }
-
   toggle(){
-    this.isSortShown = this.ToggleS.toggle();
+    this.isSortShown = this.ToggleService.toggle();
   }
 
   ngOnInit() {
-    this.ToggleS.toggleEmit.subscribe(() => this.toggle());
+    this.ToggleService.toggleEmit.subscribe(() => this.toggle());
   }
 
   ngOnDestroy(): void {
-    this.ToggleS.toggleEmit.unsubscribe();
+    this.ToggleService.toggleEmit.unsubscribe();
   }
 
 }

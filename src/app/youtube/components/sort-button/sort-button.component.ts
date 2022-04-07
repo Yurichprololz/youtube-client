@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 
 @Component({
@@ -6,8 +7,9 @@ import { SortDirectionService } from '../../services/sort-direction.service';
   templateUrl: './sort-button.component.html',
   styleUrls: ['./sort-button.component.scss'],
 })
+
 export class SortButtonComponent {
-  constructor(private direction :SortDirectionService){}
+  constructor(private direction :SortDirectionService, private filterService :FilterByKeyService){}
 
   @Output() filterByKeys : EventEmitter<string> =  new EventEmitter();
 
@@ -22,7 +24,7 @@ export class SortButtonComponent {
   }
 
   sendByKeys(){
-    this.filterByKeys.emit(this.byKeys);
+    this.filterService.filter.emit(this.byKeys);
   }
 
 }
