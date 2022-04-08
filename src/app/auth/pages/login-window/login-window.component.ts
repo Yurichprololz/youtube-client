@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login-window',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-window.component.scss'],
 })
 export class LoginWindowComponent {
+  constructor(private loginService :LoginService){}
 
+  name :string = '';
+
+  sighIn(){
+    this.loginService.signIn(this.name);
+  }
 
 }

@@ -7,12 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LoginWindowComponent } from './components/login-window/login-window.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    LoginWindowComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +27,8 @@ import { LoginWindowComponent } from './components/login-window/login-window.com
     MatButtonModule,
     MatIconModule,
     NotFoundComponent,
+    MatCardModule,
+    MatSelectModule,
   ],
 })
 export class SharedModule { }
