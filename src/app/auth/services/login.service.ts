@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   redirectToMain(){
-    this.router.navigate(['/main']);
+    this.router.navigateByUrl('main');
   }
 
   isLogin() :boolean{
