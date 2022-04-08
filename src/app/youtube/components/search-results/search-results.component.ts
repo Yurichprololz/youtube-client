@@ -5,6 +5,7 @@ import { SearchService } from '@src/app/core/services/search.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { MochDataService } from '../../services/moch-data.service';
+import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
 
 @Component({
   selector: 'app-search-results',
@@ -20,6 +21,12 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
 
   videos :intefaces.IVideo[];
 
+  subscrible :ISubsiption = {
+    search: null,
+    sort: null,
+    filter: null,
+  };
+
   constructor(
     private mochService :MochDataService,
     private searchS :SearchService,
@@ -29,21 +36,20 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-
-    this.searchS.searchEmit.subscribe((value) => {
+    this.subscrible.search = this.searchS.searchEmit.subscribe((value) => {
       this.searchValue = value;
     });
-    this.sortService.directionEmit.subscribe(() => {
+    this.subscrible.sort = this.sortService.directionEmit.subscribe(() => {
       this.sortBy = this.sortService.getValue();
     });
-    this.filterService.filter.subscribe((value:string) => {
+    this.subscrible.filter = this.filterService.filter.subscribe((value:string) => {
       this.filterByKeys = value;
     });
   }
 
   ngOnDestroy(): void {
-    // this.searchS.searchEmit.unsubscribe();
-    this.sortService.directionEmit.unsubscribe();
-    this.filterService.filter.unsubscribe();
+    if (this.subscrible.filter) this.subscrible.filter.unsubscribe();
+    if (this.subscrible.sort) this.subscrible.sort.unsubscribe();
+    if (this.subscrible.search) this.subscrible.search.unsubscribe();
   }
 }

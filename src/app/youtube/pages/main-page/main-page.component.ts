@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ToggleButtonService } from '@src/app/core/services/toggle-button.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -12,16 +13,20 @@ export class MainPageComponent implements  OnInit, OnDestroy {
 
   isSortShown = false;
 
+  subsrible :Subscription | null = null;
+
   toggle(){
     this.isSortShown = this.ToggleService.toggle();
   }
 
   ngOnInit() {
-    this.ToggleService.toggleEmit.subscribe(() => this.toggle());
+    this.subsrible = this.ToggleService.toggleEmit.subscribe(() => this.toggle());
   }
 
   ngOnDestroy(): void {
-    this.ToggleService.toggleEmit.unsubscribe();
+    if (!!this.subsrible){
+      this.subsrible.unsubscribe();
+    }
   }
 
 }

@@ -12,9 +12,10 @@ import { SortByFilterPipe } from './pipes/sort-by-filter.pipe';
 import { SortByKeysPipe } from './pipes/sort-by-keys.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { CoreModule } from '../core/core.module';
 import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-info-page.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { SortButtonComponent } from './components/sort-button/sort-button.component';
+import { SortArrowsDirective } from './directives/sort-arrows.directive';
 
 
 
@@ -30,14 +31,15 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     SearchFilterPipe,
     SortByFilterPipe,
     SortByKeysPipe,
+    SortButtonComponent,
     MainPageComponent,
-    DetailedInfoPageComponent],
+    DetailedInfoPageComponent,
+    SortArrowsDirective,
+  ],
   imports: [
     CommonModule,
     SharedModule,
-    CoreModule,
     YoutubeRoutingModule,
-
   ],
   exports:[
     MainPageComponent,
