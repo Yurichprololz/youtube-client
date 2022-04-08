@@ -13,6 +13,7 @@ import { SortByKeysPipe } from './pipes/sort-by-keys.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CoreModule } from '../core/core.module';
+import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-info-page.component';
 
 
 
@@ -28,12 +29,16 @@ import { CoreModule } from '../core/core.module';
     SearchFilterPipe,
     SortByFilterPipe,
     SortByKeysPipe,
-    MainPageComponent],
+    MainPageComponent,
+    DetailedInfoPageComponent],
   imports: [
     CommonModule,
     SharedModule,
     CoreModule,
   ],
-  exports:[MainPageComponent],
+  exports:[
+    MainPageComponent,
+    DetailedInfoPageComponent,
+  ],
 })
 export class YoutubeModule { }
