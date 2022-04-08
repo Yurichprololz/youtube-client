@@ -7,7 +7,7 @@ import { ToggleButtonService } from '@src/app/core/services/toggle-button.servic
   styleUrls: ['./main-page.component.scss'],
 })
 
-export class MainPageComponent implements OnInit, OnDestroy  {
+export class MainPageComponent implements  OnInit, OnDestroy {
   constructor(private ToggleService:ToggleButtonService){}
 
   isSortShown = false;

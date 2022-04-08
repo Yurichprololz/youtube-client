@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavigateService } from '@src/app/core/services/navigate.service';
 
 @Component({
   selector: 'app-more-button',
@@ -6,4 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./more-button.component.scss'],
 })
 export class MoreButtonComponent {
+  constructor(private navigate :NavigateService){}
+
+  @Input() id:string | undefined;
+
+  getDetailedInfo(){
+    if (this.id){
+      this.navigate.getDetailedInfo(this.id);
+    }
+  }
 }

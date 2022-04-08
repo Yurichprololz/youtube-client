@@ -1,12 +1,13 @@
 <mat-card class="example-card">
-  <img src="https://i.ytimg.com/vi/Rf54BH35yrY/hqdefault.jpg">
+  <img src="{{video?.snippet?.thumbnails?.standard?.url}}">
   <div class="information">
     <div class="title_container">
-      <mat-card-title>Angular</mat-card-title>
-      <span>8 april</span>
+      <mat-card-title>{{video?.snippet?.localized?.title}}</mat-card-title>
+      <span class="date">{{video?.snippet?.publishedAt | date : 'fullDate'}}</span>
     </div>
     <mat-card-subtitle>Description:</mat-card-subtitle>
-    <mat-card-content>🔥Get the COMPLETE COURSE (60% OFF - LIMITED TIME): Building Blocks of Angular Apps\n01:27:22 Creating Components\n01:37:00 Generating Components Using Angular CLI\n01:41:40 Templates\n01:44:08 Directives\n01:47:34 Services\n01:52:02 Dependency Injection\n01:59:22 Generating Services Using Angular CLI\n02:01:32 Exercise\n \n\nSTAY IN TOUCH\n\nhttps://www.facebook.com/programmingwithmosh/\nhttps://twitter.com/moshhamedani</mat-card-content>
-  <app-statictics-count></app-statictics-count>
+    <mat-card-content>{{video?.snippet?.localized?.description}}</mat-card-content>
+  <app-statictics-count [statictics]="video?.statistics"></app-statictics-count>
   </div>
+  <div class="back-button" (click)="goHome()">&lt;</div>
 </mat-card>

@@ -14,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CoreModule } from '../core/core.module';
 import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-info-page.component';
+import { YoutubeRoutingModule } from './youtube-routing.module';
 
 
 
@@ -35,10 +36,11 @@ import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-i
     CommonModule,
     SharedModule,
     CoreModule,
+    YoutubeRoutingModule,
+
   ],
   exports:[
     MainPageComponent,
-    DetailedInfoPageComponent,
   ],
 })
 export class YoutubeModule { }
