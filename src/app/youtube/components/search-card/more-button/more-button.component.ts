@@ -9,9 +9,10 @@ import { NavigateService } from '@src/app/core/services/navigate.service';
 export class MoreButtonComponent {
   constructor(private navigate :NavigateService){}
 
-  @Input() id:string | undefined;
+  @Input() id:any;
 
   getDetailedInfo(){
+    console.log(this.id);
     if (this.id){
       this.navigate.getDetailedInfo(this.id);
     }

@@ -5,6 +5,7 @@ import { HeaderComponent } from './compnents/header/header.component';
 import { SearchComponent } from './compnents/search/search.component';
 import { SettingButtonComponent } from './compnents/setting-button/setting-button.component';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    HttpClientModule,
   ],
   exports: [
     HeaderComponent,

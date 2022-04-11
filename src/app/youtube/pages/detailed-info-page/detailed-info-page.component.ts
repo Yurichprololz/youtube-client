@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigateService } from '@src/app/core/services/navigate.service';
 import { IVideo } from '@src/app/shared/models/videos.model';
-import { MochDataService } from '../../services/moch-data.service';
+// import { MochDataService } from '../../services/moch-data.service';
 
 @Component({
   selector: 'app-detailed-info-page',
@@ -16,15 +16,15 @@ export class DetailedInfoPageComponent implements OnInit {
 
   constructor(
     private router :ActivatedRoute,
-    private mochService :MochDataService,
+    // private mochService :MochDataService,
     private navigator :NavigateService,
   ){}
 
   ngOnInit(){
     this.id = this.router.snapshot.params['id'];
-    if (this.id){
-      this.video = this.mochService.findVideo(this.id);
-    }
+    // if (this.id){
+    //   this.video = this.mochService.findVideo(this.id);
+    // }
   }
 
   goHome() {

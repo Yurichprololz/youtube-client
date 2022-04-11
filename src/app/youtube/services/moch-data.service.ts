@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import mochResponces from '@src/app/shared/moch-responces';
 import * as Interfaces from '@shared/models/videos.model';
 
@@ -24,3 +24,4 @@ export class MochDataService {
   }
 
 }
+ */

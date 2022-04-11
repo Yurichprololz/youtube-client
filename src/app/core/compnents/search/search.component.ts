@@ -12,6 +12,8 @@ export class SearchComponent {
   constructor(private searchService :SearchService){}
 
   searchListeter() {
-    this.searchService.searchEmit.emit(this.value);
+    if (this.value.length > 2) {
+      this.searchService.searchEmit.emit(this.value);
+    }
   }
 }

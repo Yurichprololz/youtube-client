@@ -1,3 +1,5 @@
+import { ISearchVideo } from './search-video.model';
+
 export interface IPoster {
   url: string,
   width: number,
@@ -8,8 +10,8 @@ export interface IThumbnails {
   default:IPoster,
   medium: IPoster,
   high: IPoster,
-  standard: IPoster,
-  maxres: IPoster
+  standard?: IPoster,
+  maxres?: IPoster
 }
 
 export interface ILocalized{
@@ -35,7 +37,7 @@ export type ISnippet = {
 export interface IStatistics {
   viewCount: string,
   likeCount: string,
-  dislikeCount: string,
+  dislikeCount?: string,
   favoriteCount: string,
   commentCount: string
 }
@@ -57,5 +59,5 @@ export interface IResponce {
   kind: string,
   etag: string,
   pageInfo: IPageInfo,
-  items: IVideo[]
+  items: IVideo[] | ISearchVideo[]
 }

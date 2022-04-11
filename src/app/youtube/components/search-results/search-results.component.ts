@@ -4,8 +4,8 @@ import { SortBy } from '@src/app/shared/models/sort.model';
 import { SearchService } from '@src/app/core/services/search.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
-import { MochDataService } from '../../services/moch-data.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
+import { YoutubeAPIService } from '../../services/youtube-api.service';
 
 @Component({
   selector: 'app-search-results',
@@ -13,13 +13,13 @@ import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.mod
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit, OnDestroy{
-  searchValue :string = '';
+  // searchValue :string = '';
 
   sortBy :SortBy;
 
   filterByKeys = '';
 
-  videos :intefaces.IVideo[];
+  videos :intefaces.IVideo[] | null = null;
 
   subscrible :ISubsiption = {
     search: null,
@@ -28,16 +28,23 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
   };
 
   constructor(
-    private mochService :MochDataService,
-    private searchS :SearchService,
+    private searchService :SearchService,
     private sortService :SortDirectionService,
-    private filterService :FilterByKeyService) {
-    this.videos = this.mochService.getVideos();
+    private filterService :FilterByKeyService,
+    private youtubeAPI : YoutubeAPIService) {
+    // this.videos = this.mochService.getVideos();
   }
 
   ngOnInit() {
-    this.subscrible.search = this.searchS.searchEmit.subscribe((value) => {
-      this.searchValue = value;
+    this.subscrible.search = this.searchService.searchEmit.subscribe((value) => {
+      this.youtubeAPI.getVideos(value).subscribe({
+        next:(a) => {
+          const ids = a.map((video) => video.id.videoId);
+          this.youtubeAPI.getS(ids).subscribe((video) => {
+            this.videos = video;
+          } );
+        },
+      });
     });
     this.subscrible.sort = this.sortService.directionEmit.subscribe(() => {
       this.sortBy = this.sortService.getValue();
