@@ -5,6 +5,7 @@ import { IVideo } from '@shared/models/videos.model';
 @Pipe({
   name: 'sortByFilter',
 })
+
 export class SortByFilterPipe implements PipeTransform {
 
   transform(videos: IVideo[] | null, value: SortBy | undefined): IVideo[] | null {
@@ -28,10 +29,6 @@ export class SortByFilterPipe implements PipeTransform {
       default:
         return (elem1: IVideo, elem2: IVideo) => Number(elem2.statistics.viewCount)  - Number(elem1.statistics.viewCount);
     }
-  }
-
-  sortByDate(){
-    return (elem1: IVideo, elem2: IVideo) => Number(elem1.statistics.viewCount)  - Number(elem2.statistics.viewCount);
   }
 
 }

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import * as Interfaces from '@shared/models/videos.model';
+import { IVideo } from '@src/app/shared/models/videos.model';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class MochDataService {
 
-  videos: Interfaces.IVideo[] | undefined;
+  videos: IVideo[] | undefined;
 
-  // constructor(){}
-
-  setVideos(value :Interfaces.IVideo[]){
+  setVideos(value :IVideo[]){
     this.videos = value;
   }
 
@@ -18,9 +17,8 @@ export class MochDataService {
     return this.videos;
   }
 
-  findVideo(id :string): Interfaces.IVideo | undefined{
+  findVideo(id :string): IVideo | undefined{
     const a = this.videos?.find((video) => video.id === id);
-    console.log(a);
     return a;
   }
 

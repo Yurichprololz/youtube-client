@@ -9,9 +9,9 @@ import { SortDirectionService } from '../../services/sort-direction.service';
 })
 
 export class SortButtonComponent {
-  constructor(private direction :SortDirectionService, private filterService :FilterByKeyService){}
+  constructor(private direction: SortDirectionService, private filterService: FilterByKeyService){}
 
-  @Output() filterByKeys : EventEmitter<string> =  new EventEmitter();
+  @Output() filterByKeys: EventEmitter<string> =  new EventEmitter();
 
   byKeys = '';
 

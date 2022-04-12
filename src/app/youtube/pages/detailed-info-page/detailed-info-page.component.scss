@@ -1,6 +1,6 @@
 @import '../../../shared/variables';
 
-.example-card{
+.example-card {
   position: relative;
   display: flex;
   width: 85%;
@@ -9,43 +9,50 @@
   background-color: $backgroundColor;
 }
 
-.information{
+.information {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin: 20px 35px;
 }
-.title_container{
+
+.title_container {
   display: flex;
   justify-content: space-between;
 }
-img{
+
+img {
   object-fit: contain;
 }
-mat-card{
-  &-content{
+
+mat-card {
+
+  &-content {
   font-size: 12px;
   color: #828282;
   flex:1;
-}
+  }
 
-  &-subtitle{
+  &-subtitle {
   color: black;
-}
+  }
 
-  &-title{
+  &-title {
   font-size: 24px;
-}
+  }
+
 }
 
-.date{
+.date {
   font-size: 10px;
   color: #828282;
 }
-app-statictics-count{
+
+app-statictics-count {
   flex: .15;
 }
-.back-button{
+
+.back-button {
   position: absolute;
   top: 0;
   left: -30px;

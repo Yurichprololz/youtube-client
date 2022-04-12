@@ -4,6 +4,7 @@ import { IVideo } from '@shared/models/videos.model';
 @Pipe({
   name: 'searchFilter',
 })
+
 export class SearchFilterPipe implements PipeTransform {
   transform(videos: IVideo[], value: string | undefined): IVideo[] | null {
     if (value) {

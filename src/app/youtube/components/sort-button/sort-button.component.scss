@@ -1,22 +1,22 @@
 @import '../../../shared/variables';
 
-.wrap-panel{
+.wrap-panel {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
   background-color: $backgroundColor;
 
-  & *{
+  & * {
     margin-left: 10px;
 
-    &:nth-child(1){
+    &:nth-child(1) {
       margin-left: 0;
     }
   }
 
 }
-span{
+span {
   color: #929292;
 
   &:hover{
@@ -24,37 +24,37 @@ span{
   }
 }
 
-button{
+button {
   text-decoration-line: underline;
   color: #2F80ED;
   border: none;
   background: transparent;
 
-  &:hover{
+  &:hover {
     text-decoration-line: none ;
     cursor: pointer;
   }
 }
 
-input{
+input {
   outline: none;
     border: none;
 }
 
-.arrow{
-  &-down, &-up{
+.arrow {
+  &-down, &-up {
     position: relative;
   }
-  &-down::after, &-up::after{
+  &-down::after, &-up::after {
     position: absolute;
     top: 0;
     right: -5px;
     font-size: 16px;
   }
-  &-down::after{
+  &-down::after {
     content: '⇓';
   }
-  &-up::after{
+  &-up::after {
     content: '⇑';
   }
 }

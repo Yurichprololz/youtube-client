@@ -2,22 +2,23 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigateService } from '@src/app/core/services/navigate.service';
 import { IVideo } from '@src/app/shared/models/videos.model';
-import { MochDataService } from '../../services/moch-data.service';
+import { MochDataService } from '@app/youtube/services/moch-data.service';
 
 @Component({
   selector: 'app-detailed-info-page',
   templateUrl: './detailed-info-page.component.html',
   styleUrls: ['./detailed-info-page.component.scss'],
 })
-export class DetailedInfoPageComponent implements OnInit {
-  id :string | undefined;
 
-  @Input()video : IVideo | undefined;
+export class DetailedInfoPageComponent implements OnInit {
+  id: string | undefined;
+
+  @Input()video: IVideo | undefined;
 
   constructor(
-    private router :ActivatedRoute,
-    private mochService :MochDataService,
-    private navigator :NavigateService,
+    private router: ActivatedRoute,
+    private mochService: MochDataService,
+    private navigator: NavigateService,
   ){}
 
   ngOnInit(){

@@ -4,8 +4,8 @@ import { IVideo } from '@shared/models/videos.model';
 @Pipe({
   name: 'sortByKeys',
 })
-export class SortByKeysPipe implements PipeTransform {
 
+export class SortByKeysPipe implements PipeTransform {
   transform(videos: IVideo[] | null, word: string) {
     if (videos){
       if (!word) {
