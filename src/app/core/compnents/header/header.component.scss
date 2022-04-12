@@ -1,16 +1,16 @@
 @import '../../../shared/variables';
 
-.inner-container{
+.inner-container {
   display: flex;
   align-items: center;
 }
-:host{
+:host {
   display: flex;
   padding: 0 150px;
   background-color: $backgroundColor;
   justify-content: space-around;
   align-items: center;
 }
-.waste{
+.waste {
   width: 110px;
 }

@@ -13,4 +13,5 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports : [LoginWindowComponent],
 })
+
 export class AuthModule { }

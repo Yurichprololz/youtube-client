@@ -6,10 +6,11 @@ import { LoginService } from '../../services/login.service';
   templateUrl: './login-window.component.html',
   styleUrls: ['./login-window.component.scss'],
 })
-export class LoginWindowComponent {
-  constructor(private loginService :LoginService){}
 
-  name :string = '';
+export class LoginWindowComponent {
+  constructor(private loginService: LoginService){}
+
+  name: string = '';
 
   sighIn(){
     this.loginService.signIn(this.name);

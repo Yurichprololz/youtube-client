@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
-  constructor(private router :Router){}
 
-  signIn(name :string){
+export class LoginService {
+  constructor(private router: Router){}
+
+  signIn(name: string){
     localStorage.setItem('name', name);
     localStorage.setItem('falseToken', '1a1wqea2');
     if (this.isLogin()) {

@@ -7,9 +7,9 @@ import { NavigateService } from '@src/app/core/services/navigate.service';
   styleUrls: ['./more-button.component.scss'],
 })
 export class MoreButtonComponent {
-  constructor(private navigate :NavigateService){}
+  constructor(private navigate: NavigateService){}
 
-  @Input() id:string | undefined;
+  @Input() id: string | undefined;
 
   getDetailedInfo(){
     if (this.id){

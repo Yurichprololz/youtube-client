@@ -9,15 +9,16 @@ import { MochDataService } from '../../services/moch-data.service';
   templateUrl: './detailed-info-page.component.html',
   styleUrls: ['./detailed-info-page.component.scss'],
 })
-export class DetailedInfoPageComponent implements OnInit {
-  id :string | undefined;
 
-  video : IVideo | undefined;
+export class DetailedInfoPageComponent implements OnInit {
+  id: string | undefined;
+
+  video: IVideo | undefined;
 
   constructor(
-    private router :ActivatedRoute,
-    private mochService :MochDataService,
-    private navigator :NavigateService,
+    private router: ActivatedRoute,
+    private mochService: MochDataService,
+    private navigator: NavigateService,
   ){}
 
   ngOnInit(){

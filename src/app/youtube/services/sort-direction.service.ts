@@ -4,6 +4,7 @@ import { SortBy } from '@src/app/shared/models/sort.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class SortDirectionService {
   directionEmit = new EventEmitter<void>();
 

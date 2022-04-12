@@ -5,10 +5,11 @@ import {
 @Directive({
   selector: '[appColorizeBorder]',
 })
-export class ColorizeBorderDirective implements OnInit {
-  @Input('appColorizeBorder') date:string | undefined;
 
-  constructor(private element :ElementRef, private ref: Renderer2) { }
+export class ColorizeBorderDirective implements OnInit {
+  @Input('appColorizeBorder') date: string | undefined;
+
+  constructor(private element: ElementRef, private ref: Renderer2) { }
 
   ngOnInit() {
     this.highLight();
@@ -19,7 +20,7 @@ export class ColorizeBorderDirective implements OnInit {
     this.ref.setStyle(this.element.nativeElement, 'border-color', color);
   }
 
-  getColor() :string {
+  getColor(): string {
     if (!this.date) return 'yellow';
     const now = new Date();
     const publishedDate = new Date(this.date);
