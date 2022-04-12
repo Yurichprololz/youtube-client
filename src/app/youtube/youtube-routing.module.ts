@@ -6,7 +6,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 
 const routes: Routes = [
   { path: 'information/:id', component: DetailedInfoPageComponent },
-  { path: 'main', component: MainPageComponent, canActivate : [LoginGuardGuard] },
+  { path: 'main', component: MainPageComponent, canActivate: [LoginGuardGuard] },
 ];
 
 @NgModule({

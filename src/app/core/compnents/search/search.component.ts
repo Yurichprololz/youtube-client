@@ -6,6 +6,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
+
 export class SearchComponent {
   value:string = '';
 

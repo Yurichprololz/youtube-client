@@ -9,11 +9,11 @@ import { Subscription } from 'rxjs';
 })
 
 export class MainPageComponent implements  OnInit, OnDestroy {
-  constructor(private ToggleService:ToggleButtonService){}
+  constructor(private ToggleService: ToggleButtonService){}
 
   isSortShown = false;
 
-  subsrible :Subscription | null = null;
+  subsrible: Subscription | null = null;
 
   toggle(){
     this.isSortShown = this.ToggleService.toggle();

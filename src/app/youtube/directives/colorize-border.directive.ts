@@ -5,8 +5,9 @@ import {
 @Directive({
   selector: '[appColorizeBorder]',
 })
+
 export class ColorizeBorderDirective implements OnInit {
-  @Input('appColorizeBorder') date:string | undefined;
+  @Input('appColorizeBorder') date: string | undefined;
 
   constructor(private element :ElementRef, private ref: Renderer2) { }
 

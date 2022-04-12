@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './setting-button.component.html',
   styleUrls: ['./setting-button.component.scss'],
 })
+
 export class SettingButtonComponent {
 
 }

@@ -5,12 +5,13 @@ import { SortDirectionService } from '../services/sort-direction.service';
 @Directive({
   selector: '[appSortArrows]',
 })
+
 export class SortArrowsDirective implements  OnInit {
-  sort:SortBy;
+  sort: SortBy;
 
-  @Input() isSortByView!:boolean;
+  @Input() isSortByView!: boolean;
 
-  constructor(private element :ElementRef, private ref: Renderer2, private service: SortDirectionService) { }
+  constructor(private element: ElementRef, private ref: Renderer2, private service: SortDirectionService) { }
 
   ngOnInit(): void {
     this.service.directionEmit.subscribe(() => this.update());

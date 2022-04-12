@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class NavigateService {
 
+export class NavigateService {
   constructor(private router :Router) { }
 
   getDetailedInfo(id :string){

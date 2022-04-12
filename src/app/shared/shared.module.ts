@@ -31,4 +31,5 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatSelectModule,
   ],
 })
+
 export class SharedModule { }

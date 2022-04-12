@@ -6,8 +6,8 @@ import { ToggleButtonService } from '../../services/toggle-button.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
 
+export class HeaderComponent {
   constructor(private ToggleS :ToggleButtonService){}
 
   toggle() {

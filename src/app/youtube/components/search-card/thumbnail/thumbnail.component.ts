@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './thumbnail.component.html',
   styleUrls: ['./thumbnail.component.scss'],
 })
+
 export class ThumbnailComponent {
   @Input() thumbnailUrl :string | undefined;
 }
