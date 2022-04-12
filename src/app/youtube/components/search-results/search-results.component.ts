@@ -6,6 +6,7 @@ import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
 import { YoutubeAPIService } from '../../services/youtube-api.service';
+import { MochDataService } from '../../services/moch-data.service';
 
 @Component({
   selector: 'app-search-results',
@@ -31,7 +32,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
     private searchService :SearchService,
     private sortService :SortDirectionService,
     private filterService :FilterByKeyService,
-    private youtubeAPI : YoutubeAPIService) {
+    private youtubeAPI : YoutubeAPIService,
+    private videoStorageService :MochDataService) {
     // this.videos = this.mochService.getVideos();
   }
 
@@ -42,6 +44,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
           const ids = a.map((video) => video.id.videoId);
           this.youtubeAPI.getS(ids).subscribe((video) => {
             this.videos = video;
+            this.videoStorageService.setVideos(video);
           } );
         },
       });

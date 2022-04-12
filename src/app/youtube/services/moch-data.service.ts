@@ -1,18 +1,17 @@
-/* import { Injectable } from '@angular/core';
-import mochResponces from '@src/app/shared/moch-responces';
+import { Injectable } from '@angular/core';
 import * as Interfaces from '@shared/models/videos.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MochDataService {
-  data: Interfaces.IResponce;
 
-  videos: Interfaces.IVideo[];
+  videos: Interfaces.IVideo[] | undefined;
 
-  constructor(){
-    this.data = mochResponces;
-    this.videos = this.data.items;
+  // constructor(){}
+
+  setVideos(value :Interfaces.IVideo[]){
+    this.videos = value;
   }
 
   getVideos(){
@@ -20,8 +19,9 @@ export class MochDataService {
   }
 
   findVideo(id :string): Interfaces.IVideo | undefined{
-    return this.videos.find((video) => video.id === id);
+    const a = this.videos?.find((video) => video.id === id);
+    console.log(a);
+    return a;
   }
 
 }
- */
