@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IVideo } from '@src/app/shared/models/videos.model';
 import { YoutubeAPIService } from '@src/app/youtube/services/youtube-api.service';
-import { fromEvent, debounceTime, distinctUntilChanged, map, switchMap, Observable, filter } from 'rxjs';
+import { fromEvent, debounceTime, map, switchMap, Observable, filter, distinctUntilChanged } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +9,24 @@ import { fromEvent, debounceTime, distinctUntilChanged, map, switchMap, Observab
 export class SearchService {
   constructor(private youtubeAPI: YoutubeAPIService){}
 
-  search(): Observable<IVideo[]>{
+  searchList(): Observable<IVideo[]>{
     const inputEl = document.getElementById('search') as HTMLInputElement;
     return fromEvent(inputEl, 'input')
       .pipe(
+        map((event:Event) => event.target as HTMLInputElement),
+        map((input) => input.value),
         debounceTime(500),
         distinctUntilChanged(),
-        map((a:Event) => a.target as HTMLInputElement),
-        filter((input) => input.value.length > 2 || input.value.length === 0),
-        switchMap((input) => this.youtubeAPI.getVideos(input.value)),
+        filter((value) => value.length > 2 || value.length === 0),
+        switchMap((word) => this.youtubeAPI.getVideos(word)),
+      );
+  }
+
+  getSingleVideo(id: string){
+    const arr = Array(id);
+    return this.youtubeAPI.getFullInfo(arr)
+      .pipe(
+        map((a) => a[0]),
       );
   }
 }

@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card *ngIf="hasData" class="example-card">
   <img src="{{video?.snippet?.thumbnails?.high?.url}}">
   <div class="information">
     <div class="title_container">

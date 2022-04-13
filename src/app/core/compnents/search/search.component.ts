@@ -11,6 +11,6 @@ export class SearchComponent {
   constructor(private searchService :SearchService){}
 
   searchListeter() {
-    this.searchService.search();
+    this.searchService.searchList();
   }
 }

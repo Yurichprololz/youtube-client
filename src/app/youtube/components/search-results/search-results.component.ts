@@ -35,7 +35,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
 
-    this.searchService.search()
+    this.searchService.searchList()
       .subscribe({
         next:(video) => {
           this.videos = video;

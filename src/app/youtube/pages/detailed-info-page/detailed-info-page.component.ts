@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigateService } from '@src/app/core/services/navigate.service';
 import { IVideo } from '@src/app/shared/models/videos.model';
-import { MochDataService } from '@app/youtube/services/moch-data.service';
+import { SearchService } from '@src/app/core/services/search.service';
 
 @Component({
   selector: 'app-detailed-info-page',
@@ -13,19 +13,37 @@ import { MochDataService } from '@app/youtube/services/moch-data.service';
 export class DetailedInfoPageComponent implements OnInit {
   id: string | undefined;
 
-  @Input()video: IVideo | undefined;
+  video: IVideo | undefined;
+
+  hasData: boolean = false;
 
   constructor(
     private router: ActivatedRoute,
-    private mochService: MochDataService,
     private navigator: NavigateService,
+    private searchService: SearchService,
   ){}
 
   ngOnInit(){
     this.id = this.router.snapshot.params['id'];
     if (this.id){
-      this.video = this.mochService.findVideo(this.id);
+      this.searchService.getSingleVideo(this.id)
+        .subscribe({
+          next: async (video) => {
+            this.video = video;
+            await this.donwloadImage(this.video.snippet.thumbnails.default.url);
+            this.hasData = true;
+          },
+        });
     }
+  }
+
+  donwloadImage(src: string){
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => res(img);
+      img.onerror = rej;
+      img.src = src;
+    });
   }
 
   goHome() {

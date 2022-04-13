@@ -12,7 +12,6 @@ export class MoreButtonComponent {
   @Input() id:any;
 
   getDetailedInfo(){
-    console.log(this.id);
     if (this.id){
       this.navigate.getDetailedInfo(this.id);
     }

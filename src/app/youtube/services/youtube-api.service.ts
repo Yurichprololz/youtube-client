@@ -9,7 +9,7 @@ import { map, mergeMap, Observable, of } from 'rxjs';
 })
 export class YoutubeAPIService {
 
-  key = 'AIzaSyCTC4ZquwolqPyoMRr8EjBkAyspfOfp5uU';
+  key = 'AIzaSyBJar6F0trLLUCyhH77i5rCGJul8uyb2-E';
 
   constructor(private http: HttpClient){}
 
