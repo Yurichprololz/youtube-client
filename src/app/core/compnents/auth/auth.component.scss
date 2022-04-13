@@ -1,6 +1,16 @@
 div {
   display: flex;
+  align-items: center;
 }
+
 img {
   margin-left: 10px;
+}
+
+button {
+  background: #2F80ED;
+  border-radius: 5px;
+  height: 32px;
+  line-height: 0;
+  margin-left: 15px;
 }

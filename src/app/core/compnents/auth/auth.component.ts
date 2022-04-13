@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '@src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-auth',
@@ -6,10 +7,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth.component.scss'],
 })
 
-export class AuthComponent {
-  name:string;
+export class AuthComponent implements OnInit {
+  name:string = 'Your name';
 
-  constructor() {
-    this.name = localStorage.getItem('name') || 'Your name';
+  isLogin!:boolean;
+
+  constructor(private loginService: LoginService){}
+
+  ngOnInit(){
+    this.loginService.pushIsLogin
+      .subscribe({ next:(value: boolean) => {
+        this.isLogin = value;
+        this.name = localStorage.getItem('name') || 'Your name';
+      } });
   }
+
+  logOut(){
+    this.loginService.logOut();
+  }
+
+  logIn(){
+    this.loginService.redirectToLoginPage();
+  }
+
+
 }

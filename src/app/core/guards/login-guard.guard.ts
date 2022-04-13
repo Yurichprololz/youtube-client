@@ -10,7 +10,7 @@ export class LoginGuardGuard implements CanActivate {
   constructor(private router :Router, private loginService :LoginService){}
 
   canActivate(): boolean | UrlTree {
-    return this.loginService.isLogin() || this.router.createUrlTree(['/login']);
+    return this.loginService.isLogin || this.router.createUrlTree(['/login']);
   }
 
 }

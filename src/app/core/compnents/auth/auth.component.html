@@ -1,4 +1,8 @@
 <div>
   <p>{{ name }}</p>
   <img src="../../../../assets/image/auth.svg" alt="user avatar">
+  <button *ngIf="!isLogin; else logOutBtn" (click) = "logIn()" mat-button>Log In</button>
+  <ng-template #logOutBtn>
+    <button (click) = "logOut()"  mat-button>Log Out</button>
+  </ng-template>
 </div>
