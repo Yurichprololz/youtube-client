@@ -1,5 +1,3 @@
-import { ISearchVideo } from './search-video.model';
-
 export interface IPoster {
   url: string,
   width: number,
@@ -59,5 +57,5 @@ export interface IResponce {
   kind: string,
   etag: string,
   pageInfo: IPageInfo,
-  items: IVideo[] | ISearchVideo[]
+  items: IVideo[]
 }

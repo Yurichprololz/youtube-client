@@ -1,4 +1,4 @@
-import { IThumbnails } from './videos.model';
+import { IPageInfo, IThumbnails } from './videos.model';
 
 export interface ISearchVideo {
   kind: string,
@@ -22,4 +22,11 @@ export interface ISearchSnippet {
   thumbnails: IThumbnails,
   channelTitle: string,
   liveBroadcastContent: string
+}
+
+export interface ISearchResponce {
+  kind: string,
+  etag: string,
+  pageInfo: IPageInfo,
+  items: ISearchVideo[]
 }

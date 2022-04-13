@@ -8,13 +8,9 @@ import { SearchService } from '../../services/search.service';
 })
 
 export class SearchComponent {
-  value: string = '';
-
   constructor(private searchService :SearchService){}
 
   searchListeter() {
-    if (this.value.length > 2) {
-      this.searchService.searchEmit.emit(this.value);
-    }
+    this.searchService.search();
   }
 }

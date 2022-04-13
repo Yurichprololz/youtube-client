@@ -4,7 +4,6 @@ import { SearchService } from '@src/app/core/services/search.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
-import { YoutubeAPIService } from '../../services/youtube-api.service';
 import { IVideo } from '@shared/models/videos.model';
 import { MochDataService } from '@app/youtube/services/moch-data.service';
 
@@ -15,8 +14,6 @@ import { MochDataService } from '@app/youtube/services/moch-data.service';
 })
 
 export class SearchResultsComponent implements OnInit, OnDestroy{
-  // searchValue :string = '';
-
   sortBy: SortBy;
 
   filterByKeys = '';
@@ -33,26 +30,23 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
     private searchService: SearchService,
     private sortService: SortDirectionService,
     private filterService: FilterByKeyService,
-    private youtubeAPI: YoutubeAPIService,
     private videoStorageService: MochDataService) {
-    // this.videos = this.mochService.getVideos();
   }
 
   ngOnInit() {
-    this.subscrible.search = this.searchService.searchEmit.subscribe((value) => {
-      this.youtubeAPI.getVideos(value).subscribe({
-        next:(a) => {
-          const ids = a.map((video) => video.id.videoId);
-          this.youtubeAPI.getS(ids).subscribe((video) => {
-            this.videos = video;
-            this.videoStorageService.setVideos(video);
-          } );
+
+    this.searchService.search()
+      .subscribe({
+        next:(video) => {
+          this.videos = video;
+          this.videoStorageService.setVideos(video);
         },
       });
-    });
+
     this.subscrible.sort = this.sortService.directionEmit.subscribe(() => {
       this.sortBy = this.sortService.getValue();
     });
+
     this.subscrible.filter = this.filterService.filter.subscribe((value:string) => {
       this.filterByKeys = value;
     });
