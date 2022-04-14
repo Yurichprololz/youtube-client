@@ -11,8 +11,9 @@ export class SortByKeysPipe implements PipeTransform {
       if (!word) {
         return [...videos];
       }
-      return videos.filter((elem) => elem.snippet.tags
-        .some(phrase => phrase.includes(word)));
+      return videos.filter((elem) => elem.snippet?.tags
+        ?.some(phrase => phrase.includes(word)),
+      );
     }
     return null;
   }
