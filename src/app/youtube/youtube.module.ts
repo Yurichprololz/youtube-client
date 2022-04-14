@@ -7,7 +7,6 @@ import { VideoNameComponent } from './components/search-card/video-name/video-na
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import { ColorizeBorderDirective } from './directives/colorize-border.directive';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SortByFilterPipe } from './pipes/sort-by-filter.pipe';
 import { SortByKeysPipe } from './pipes/sort-by-keys.pipe';
 import { SharedModule } from '../shared/shared.module';
@@ -30,7 +29,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     VideoNameComponent,
     SearchCardComponent,
     ColorizeBorderDirective,
-    SearchFilterPipe,
     SortByFilterPipe,
     SortByKeysPipe,
     SortButtonComponent,
