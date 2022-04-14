@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   constructor(private loginService: LoginService){}
 
   ngOnInit(){
-    this.loginService.pushIsLogin
+    this.loginService.subject
       .subscribe({ next:(value: boolean) => {
         this.isLogin = value;
         this.name = localStorage.getItem('name') || 'Your name';

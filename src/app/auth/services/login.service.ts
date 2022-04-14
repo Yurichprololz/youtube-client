@@ -1,6 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +9,11 @@ import { Observable } from 'rxjs';
 export class LoginService {
   isLogin:boolean;
 
-  pushIsLogin: EventEmitter<boolean> = new EventEmitter;
+  subject: BehaviorSubject<boolean>;
 
   constructor(private router :Router){
     this.isLogin = Boolean(localStorage.getItem('falseToken'));
+    this.subject = new BehaviorSubject<boolean>(this.isLogin);
   }
 
   signIn(name :string){
@@ -24,7 +25,7 @@ export class LoginService {
 
   toggleIsLogin(){
     this.isLogin = !this.isLogin;
-    this.pushIsLogin.emit(this.isLogin);
+    this.subject.next(this.isLogin);
   }
 
   redirectToMain(){
@@ -33,12 +34,6 @@ export class LoginService {
 
   redirectToLoginPage(){
     this.router.navigateByUrl('login');
-  }
-
-  getIsLogin(){
-    return new Observable<boolean>((subscriber) => {
-      setInterval(() => subscriber.next(this.isLogin), 1000);
-    });
   }
 
   logOut(){
