@@ -20,7 +20,10 @@ export class MainPageComponent implements  OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subsrible = this.ToggleService.toggleEmit.subscribe(() => this.toggle());
+    this.subsrible = this.ToggleService.toggleEmit.subscribe(
+      () => this.toggle(),
+      (error) => console.log(error),
+    );
   }
 
   ngOnDestroy(): void {

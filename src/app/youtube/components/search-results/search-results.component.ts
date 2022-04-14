@@ -5,7 +5,6 @@ import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
 import { IVideo } from '@shared/models/videos.model';
-import { MochDataService } from '@app/youtube/services/moch-data.service';
 
 @Component({
   selector: 'app-search-results',
@@ -29,8 +28,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
   constructor(
     private searchService: SearchService,
     private sortService: SortDirectionService,
-    private filterService: FilterByKeyService,
-    private videoStorageService: MochDataService) {
+    private filterService: FilterByKeyService) {
   }
 
   ngOnInit() {
@@ -39,17 +37,24 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
       .subscribe({
         next:(video) => {
           this.videos = video;
-          this.videoStorageService.setVideos(video);
+        },
+        error:(error) => {
+          console.log(error);
+          this.videos = [];
         },
       });
 
-    this.subscrible.sort = this.sortService.directionEmit.subscribe(() => {
-      this.sortBy = this.sortService.getValue();
-    });
+    this.subscrible.sort = this.sortService.directionEmit.subscribe(
+      () => this.sortBy = this.sortService.getValue(),
+      () => this.sortBy = 'askView');
 
-    this.subscrible.filter = this.filterService.filter.subscribe((value:string) => {
-      this.filterByKeys = value;
-    });
+    this.subscrible.filter = this.filterService.filter.subscribe(
+      (value:string) => this.filterByKeys = value,
+      (error: Error) => {
+        console.log(error);
+        this.filterByKeys = '';
+      },
+    );
   }
 
   ngOnDestroy(): void {

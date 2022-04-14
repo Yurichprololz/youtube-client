@@ -33,6 +33,10 @@ export class DetailedInfoPageComponent implements OnInit {
             await this.donwloadImage(this.video.snippet.thumbnails.default.url);
             this.hasData = true;
           },
+          error: (error) => {
+            console.log(error);
+            this.goHome();
+          },
         });
     }
   }
