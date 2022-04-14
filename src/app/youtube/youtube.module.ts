@@ -16,6 +16,8 @@ import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-i
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { SortButtonComponent } from './components/sort-button/sort-button.component';
 import { SortArrowsDirective } from './directives/sort-arrows.directive';
+import { AddAuthTokenInterceptor } from './interceptors/add-auth-token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -43,6 +45,9 @@ import { SortArrowsDirective } from './directives/sort-arrows.directive';
   ],
   exports:[
     MainPageComponent,
+  ],
+  providers:[
+    { provide: HTTP_INTERCEPTORS, useClass: AddAuthTokenInterceptor, multi: true },
   ],
 })
 
