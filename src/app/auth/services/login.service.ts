@@ -23,6 +23,10 @@ export class LoginService {
     this.redirectToMain();
   }
 
+  isAdmin(): boolean{
+    return localStorage.getItem('name') === 'admin@mail.com';
+  }
+
   toggleIsLogin(){
     this.isLogin = !this.isLogin;
     this.subject.next(this.isLogin);

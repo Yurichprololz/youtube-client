@@ -8,6 +8,8 @@ const routes: Routes = [
     .then((m) => m.YoutubeRoutingModule) },
   { path: 'login', loadChildren: () => import('./auth/auth-routing.module')
     .then((m) => m.AuthRoutingModule) },
+  { path: 'admin', loadChildren: () => import('./core/core-routing.module')
+    .then((m) => m.CoreRoutingModule ) },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -6,6 +6,7 @@ import { SearchComponent } from './compnents/search/search.component';
 import { SettingButtonComponent } from './compnents/setting-button/setting-button.component';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 
 
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthComponent,
     SearchComponent,
     SettingButtonComponent,
+    AdminPageComponent,
   ],
   imports: [
     CommonModule,

@@ -51,7 +51,7 @@ export class LoginWindowComponent implements OnInit, OnDestroy{
 
 
   onSubmit(){
-    this.loginService.signIn(this.loginData.value.name);
+    this.loginService.signIn(this.loginData.value.email);
   }
 
 }

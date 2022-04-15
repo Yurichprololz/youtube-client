@@ -1,6 +1,6 @@
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-export const  myValidatorForPassword = (control: FormControl): ValidationErrors | null => {
+export const  myValidatorForPassword = (control: AbstractControl): ValidationErrors | null => {
   const arrLetters = Array.from(control.value) as string[];
   const isOk =
   control.value.length >= 8 &&
