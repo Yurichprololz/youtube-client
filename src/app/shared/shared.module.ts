@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatNativeDateModule } from '@angular/material/core/datetime';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatCardModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     FormsModule,
@@ -31,6 +36,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatCardModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 

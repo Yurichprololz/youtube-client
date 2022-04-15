@@ -7,6 +7,7 @@ import { SettingButtonComponent } from './compnents/setting-button/setting-butto
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -22,6 +23,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     CommonModule,
     SharedModule,
     HttpClientModule,
+    MatDatepickerModule,
   ],
   exports: [
     HeaderComponent,

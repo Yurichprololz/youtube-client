@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { DescriptionPlaceholder, TitlePlaceholder } from './enums/adminPlaceholders.enums';
 import { PasswordPlaceholders } from './enums/placeholders.enums';
 
 export const  myValidatorForPassword = (control: AbstractControl): ValidationErrors | null => {
@@ -14,4 +15,30 @@ export const  myValidatorForPassword = (control: AbstractControl): ValidationErr
     return null;
   }
   return { message: PasswordPlaceholders.invalid };
+};
+
+export const  myValidatorForTitle = (control: AbstractControl): ValidationErrors | null => {
+  if (control.value.length < 3){
+    return { message: TitlePlaceholder.short };
+  }
+  if (control.value.length > 20){
+    return { message: TitlePlaceholder.long };
+  }
+  return null;
+};
+
+export const  myValidatorForDescription = (control: AbstractControl): ValidationErrors | null => {
+  if (control.value.length > 255){
+    return { message: DescriptionPlaceholder.invalid };
+  }
+  return null;
+};
+
+export const  myValidatorForVideo = (control: AbstractControl): ValidationErrors | null => {
+  try {
+    new URL(control.value);
+    return null;
+  } catch (error) {
+    return { message: 'error' };
+  }
 };
