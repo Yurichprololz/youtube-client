@@ -22,7 +22,7 @@
         <input matInput formControlName="creationDateControl" [matDatepicker]="picker" placeholder="{{placeholder.creationDate}}">
       </mat-form-field>
     </mat-card-content>
-    <button type="submit" mat-stroked-button color="primary" class="btn-block">Create card</button>
+    <button type="submit" [disabled]="!groupControl.valid" mat-stroked-button color="primary" class="btn-block">Create card</button>
   </form>
 
 </mat-card>
