@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { PasswordPlaceholders } from './enums/placeholders.enums';
 
 export const  myValidatorForPassword = (control: AbstractControl): ValidationErrors | null => {
   const arrLetters = Array.from(control.value) as string[];
@@ -12,5 +13,5 @@ export const  myValidatorForPassword = (control: AbstractControl): ValidationErr
   if (isOk){
     return null;
   }
-  return { isOkPassword: 'Your password isn\'t strong enough' };
+  return { message: PasswordPlaceholders.invalid };
 };

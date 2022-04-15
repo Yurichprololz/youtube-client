@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormControlStatus, FormGroup, Validators } from '@angular/forms';
 import { EmailPlaceholders, PasswordPlaceholders } from '@src/app/shared/enums/placeholders.enums';
 import { myValidatorForPassword } from '@src/app/shared/helper';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { LoginService } from '../../services/login.service';
 export class LoginWindowComponent implements OnInit, OnDestroy{
   emailPlaceholder = EmailPlaceholders.default;
 
-  passwordPlaceholder = PasswordPlaceholders.default;
+  passwordPlaceholder: PasswordPlaceholders = PasswordPlaceholders.default; // PasswordPlaceholders.default;
 
   emailSubscriber: Subscription | null = null;
 
@@ -32,16 +32,15 @@ export class LoginWindowComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    this.emailSubscriber = this.loginData.controls['email'].valueChanges
-      .subscribe((control: FormControl) => {
-        this.emailPlaceholder = control.valid ? EmailPlaceholders.valid : EmailPlaceholders.invalid;
+    this.emailSubscriber = this.loginData.controls['email'].statusChanges
+      .subscribe((control: FormControlStatus) => {
+        this.emailPlaceholder = control === 'VALID' ? EmailPlaceholders.valid : EmailPlaceholders.invalid;
       });
 
-    this.emailSubscriber = this.loginData.controls['password'].valueChanges
-      .subscribe((control: FormControl) => {
-        this.passwordPlaceholder = control.valid ? PasswordPlaceholders.valid : PasswordPlaceholders.invalid;
+    this.passwordSubscriber = this.loginData.controls['password'].statusChanges
+      .subscribe(() =>  {
+        this.passwordPlaceholder = this.loginData.controls['password'].getError('message') || PasswordPlaceholders.valid;
       });
-
   }
 
   ngOnDestroy(): void {
