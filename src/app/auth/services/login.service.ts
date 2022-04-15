@@ -24,7 +24,7 @@ export class LoginService {
   }
 
   isAdmin(): boolean{
-    return localStorage.getItem('name') === 'admin@mail.com';
+    return localStorage.getItem('name') === 'Admin';
   }
 
   toggleIsLogin(){

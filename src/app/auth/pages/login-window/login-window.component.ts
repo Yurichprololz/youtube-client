@@ -48,9 +48,15 @@ export class LoginWindowComponent implements OnInit, OnDestroy{
     this.passwordSubscriber?.unsubscribe();
   }
 
+  getName(): string {
+    const name = this.loginData.value.email.split('@')[0];
+    return name[0].toUpperCase() + name.slice(1);
+  }
+
 
   onSubmit(){
-    this.loginService.signIn(this.loginData.value.email);
+    const name = this.getName();
+    this.loginService.signIn(name);
   }
 
 }
