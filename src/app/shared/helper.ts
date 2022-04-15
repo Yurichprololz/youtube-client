@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { DescriptionPlaceholder, TitlePlaceholder } from './enums/adminPlaceholders.enums';
+import { CreationDatePlaceholder, DescriptionPlaceholder, ImgPlaceholder, LinkVideoPlaceholder, TitlePlaceholder } from './enums/adminPlaceholders.enums';
 import { PasswordPlaceholders } from './enums/placeholders.enums';
 
 export const  myValidatorForPassword = (control: AbstractControl): ValidationErrors | null => {
@@ -34,11 +34,28 @@ export const  myValidatorForDescription = (control: AbstractControl): Validation
   return null;
 };
 
+export const  myValidatorForDate = (control: AbstractControl): ValidationErrors | null => {
+  console.log((control.value as Date) > new Date());
+  if ((control.value as Date) > new Date()){
+    return { message: CreationDatePlaceholder.invalid };
+  }
+  return null;
+};
+
 export const  myValidatorForVideo = (control: AbstractControl): ValidationErrors | null => {
   try {
     new URL(control.value);
     return null;
   } catch (error) {
-    return { message: 'error' };
+    return { message: LinkVideoPlaceholder.invalid };
+  }
+};
+
+export const  myValidatorForImg = (control: AbstractControl): ValidationErrors | null => {
+  try {
+    new URL(control.value);
+    return null;
+  } catch (error) {
+    return { message: ImgPlaceholder.invalid };
   }
 };

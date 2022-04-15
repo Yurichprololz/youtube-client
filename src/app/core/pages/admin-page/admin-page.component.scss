@@ -36,6 +36,7 @@
   z-index: 5;
   max-width: 330px;
 }
+
 .box.back {
   transform: scale(.95);
   -webkit-transform: scale(.95);
@@ -72,6 +73,7 @@
   line-height: 54px;
   background: transparent;
 }
-.mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: 0.8375em 0;
+
+mat-datepicker-toggle {
+  font-size: 24px;
 }

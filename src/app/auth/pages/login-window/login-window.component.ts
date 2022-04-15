@@ -14,7 +14,7 @@ import { LoginService } from '../../services/login.service';
 export class LoginWindowComponent implements OnInit, OnDestroy{
   emailPlaceholder = EmailPlaceholders.default;
 
-  passwordPlaceholder: PasswordPlaceholders = PasswordPlaceholders.default; // PasswordPlaceholders.default;
+  passwordPlaceholder: PasswordPlaceholders = PasswordPlaceholders.default;
 
   emailSubscriber: Subscription | null = null;
 
