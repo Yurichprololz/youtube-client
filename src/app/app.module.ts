@@ -7,6 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './redux/reducers';
+// import * as fromRedux from './redux/reducers';
 
 
 @NgModule({
@@ -21,6 +27,10 @@ import { AuthModule } from './auth/auth.module';
     CoreModule,
     SharedModule,
     AuthModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    // StoreModule.forFeature(),
   ],
   providers: [],
   bootstrap: [AppComponent],
