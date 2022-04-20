@@ -4,7 +4,7 @@ import { SearchService } from '@src/app/core/services/search.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
-import { IVideo } from '@shared/models/videos.model';
+import { YoutubeCard } from '@src/app/redux/state.models';
 
 @Component({
   selector: 'app-search-results',
@@ -17,7 +17,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
 
   filterByKeys = '';
 
-  videos: IVideo[] | null = null;
+  videos: YoutubeCard[] | null = null;
 
   subscrible: ISubsiption = {
     search: null,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IVideo } from '@src/app/shared/models/videos.model';
+import { YoutubeCard } from '@src/app/redux/state.models';
 import { YoutubeAPIService } from '@src/app/youtube/services/youtube-api.service';
 import { fromEvent, debounceTime, map, switchMap, Observable, filter, distinctUntilChanged, catchError, EMPTY } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { fromEvent, debounceTime, map, switchMap, Observable, filter, distinctUn
 export class SearchService {
   constructor(private youtubeAPI: YoutubeAPIService){}
 
-  searchList(): Observable<IVideo[]>{
+  searchList(): Observable<YoutubeCard[]>{
     const inputEl = document.getElementById('search') as HTMLInputElement;
     return fromEvent(inputEl, 'input')
       .pipe(
@@ -23,7 +23,7 @@ export class SearchService {
       );
   }
 
-  getSingleVideo(id: string){
+  getSingleVideo(id: string): Observable<YoutubeCard>{
     const arr = Array(id);
     return this.youtubeAPI.getFullInfo(arr)
       .pipe(

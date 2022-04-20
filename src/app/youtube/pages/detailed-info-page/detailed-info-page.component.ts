@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigateService } from '@src/app/core/services/navigate.service';
-import { IVideo } from '@src/app/shared/models/videos.model';
 import { SearchService } from '@src/app/core/services/search.service';
+import { YoutubeCard } from '@src/app/redux/state.models';
 
 @Component({
   selector: 'app-detailed-info-page',
@@ -13,7 +13,7 @@ import { SearchService } from '@src/app/core/services/search.service';
 export class DetailedInfoPageComponent implements OnInit {
   id: string | undefined;
 
-  video: IVideo | undefined;
+  video: YoutubeCard | undefined;
 
   hasData: boolean = false;
 
@@ -30,7 +30,8 @@ export class DetailedInfoPageComponent implements OnInit {
         .subscribe({
           next: async (video) => {
             this.video = video;
-            await this.donwloadImage(this.video.snippet.thumbnails.default.url);
+            console.log(video);
+            // await this.donwloadImage(this.video.linkImage);
             this.hasData = true;
           },
           error: (error) => {

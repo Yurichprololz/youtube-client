@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IVideo } from '@src/app/shared/models/videos.model';
+import { YoutubeCard } from '@src/app/redux/state.models';
 
 @Component({
   selector: 'app-search-card',
@@ -8,5 +8,5 @@ import { IVideo } from '@src/app/shared/models/videos.model';
 })
 
 export class SearchCardComponent {
-  @Input() video: IVideo | undefined;
+  @Input() video: YoutubeCard | undefined;
 }

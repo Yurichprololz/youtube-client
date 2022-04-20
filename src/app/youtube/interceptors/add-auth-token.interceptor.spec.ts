@@ -5,8 +5,8 @@ import { AddAuthTokenInterceptor } from './add-auth-token.interceptor';
 describe('AddAuthTokenInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      AddAuthTokenInterceptor
-      ]
+      AddAuthTokenInterceptor,
+    ],
   }));
 
   it('should be created', () => {
