@@ -1,9 +1,5 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector } from '@ngrx/store';
 import { customFeatureKey } from '../reducers';
-import { State } from '../state.models';
+import { CustomCard } from '../state.models';
 
-const selectState = createFeatureSelector<State>(customFeatureKey);
-
-export const selectCustomCards = createSelector(
-  selectState,
-  (state) => state.customCards);
+export const selectCustomCards = createFeatureSelector<CustomCard[]>(customFeatureKey);

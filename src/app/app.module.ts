@@ -12,7 +12,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './redux/reducers';
-// import * as fromRedux from './redux/reducers';
 
 
 @NgModule({
@@ -30,7 +29,6 @@ import { reducers } from './redux/reducers';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    // StoreModule.forFeature(),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -8,9 +7,4 @@ import { SearchService } from '../../services/search.service';
 })
 
 export class SearchComponent {
-  constructor(private searchService :SearchService){}
-
-  searchListeter() {
-    this.searchService.searchList();
-  }
 }

@@ -1,6 +1,8 @@
 <div>
   <app-search-card
-  *ngFor="let video of videos| sortByKeys: filterByKeys | sortByFilter: sortBy "
-  [video]="video"
+    *ngFor="let video of videos$ | async
+    | sortByKeys: filterByKeys
+    | sortByFilter: sortBy "
+    [video]="video"
   ></app-search-card>
 </div>

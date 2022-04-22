@@ -1,9 +1,5 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector } from '@ngrx/store';
 import { youtubeFeatureKey } from '../reducers';
-import { State } from '../state.models';
+import { YoutubeCard } from '../state.models';
 
-const selectState = createFeatureSelector<State>(youtubeFeatureKey);
-
-export const selectYoutubeCards = createSelector(
-  selectState,
-  (state) => state.youtubeCards);
+export const selectYoutubeCards = createFeatureSelector<YoutubeCard[]>(youtubeFeatureKey);

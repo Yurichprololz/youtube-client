@@ -6,7 +6,5 @@ import { YoutubeCard } from '../state.models';
 export const youtubeReducer = createReducer(
   initialState.youtubeCards,
   on(updateYoutubeCardsAction,
-    (state, { YoutubeCards }): YoutubeCard[] => ({
-      ...YoutubeCards,
-    })),
+    (state, { YoutubeCards }): YoutubeCard[] => ( [...YoutubeCards] )),
 );

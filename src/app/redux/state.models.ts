@@ -5,16 +5,28 @@ export interface State {
   youtubeCards: YoutubeCard[],
 }
 
-export interface CustomCard {
+export interface BasicCard {
   title: string,
   linkVideo: string,
   linkImage: string,
   creationDate: string,
-  description: string,
+  description?: string,
 }
 
-export interface YoutubeCard extends CustomCard{
+export interface YoutubeCard extends BasicCard{
   statictics: IStatistics
   tags: string[]
   id: string
 }
+
+export interface CustomCard extends BasicCard {}
+
+export interface SearchCard extends BasicCard {
+  statictics?: IStatistics
+  tags?: string[]
+  id?: string
+}
+
+
+
+export type Card = CustomCard | YoutubeCard;
