@@ -1,5 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { createCardAction } from '@src/app/redux/actions/custom.actions';
+import { CustomCard } from '@src/app/redux/state.models';
 import { CreationDatePlaceholder, DescriptionPlaceholder, ImgPlaceholder, LinkVideoPlaceholder, TitlePlaceholder } from '@src/app/shared/enums/adminPlaceholders.enums';
 import { myValidatorForDate, myValidatorForDescription, myValidatorForImg, myValidatorForTitle, myValidatorForVideo } from '@src/app/shared/helper';
 import { AdminPanelPlaceholders } from '@src/app/shared/models/adminPlaceholders.model';
@@ -27,7 +30,7 @@ export class AdminPageComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(){
+  constructor(private store: Store){
     this.placeholder = {
       title: TitlePlaceholder.default,
       description: DescriptionPlaceholder.default,
@@ -48,6 +51,20 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     this.imgControl = this.groupControl.controls['imgControl'];
     this.linkVideoControl = this.groupControl.controls['linkVideoControl'];
     this.creationDateControl = this.groupControl.controls['creationDateControl'];
+  }
+
+  createCard(){
+    this.store.dispatch(createCardAction( { newCard: this.create() } ));
+  }
+
+  create(): CustomCard{
+    return {
+      title: this.titleControl.value,
+      description: this.descriptionControl.value,
+      linkImage: this.imgControl.value,
+      linkVideo: this.linkVideoControl.value,
+      creationDate: this.creationDateControl.value,
+    };
   }
 
   ngOnInit() {

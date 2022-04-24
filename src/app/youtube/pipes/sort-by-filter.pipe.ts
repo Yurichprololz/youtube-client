@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SortBy } from '@shared/models/sort.model';
-import { IVideo } from '@shared/models/videos.model';
+import { YoutubeCard } from '@src/app/redux/state.models';
 
 @Pipe({
   name: 'sortByFilter',
@@ -8,7 +8,7 @@ import { IVideo } from '@shared/models/videos.model';
 
 export class SortByFilterPipe implements PipeTransform {
 
-  transform(videos: IVideo[] | null, value: SortBy | undefined): IVideo[] | null {
+  transform(videos: YoutubeCard[] | null, value: SortBy | undefined): YoutubeCard[] | null {
     if (videos) {
       if (!value){
         return [...videos];
@@ -21,13 +21,13 @@ export class SortByFilterPipe implements PipeTransform {
   sorting(value: SortBy){
     switch (value) {
       case 'askDate':
-        return (elem1: IVideo, elem2: IVideo) => new Date(elem1.snippet.publishedAt)  > new Date(elem2.snippet.publishedAt) ? -1 : 1;
+        return (elem1: YoutubeCard, elem2: YoutubeCard) => new Date(elem1.creationDate)  > new Date(elem2.creationDate) ? -1 : 1;
       case 'askView':
-        return (elem1: IVideo, elem2: IVideo) => Number(elem1.statistics.viewCount)  - Number(elem2.statistics.viewCount);
+        return (elem1: YoutubeCard, elem2: YoutubeCard) => Number(elem1.statictics.viewCount)  - Number(elem2.statictics.viewCount);
       case 'descDate':
-        return (elem1: IVideo, elem2: IVideo) => new Date(elem1.snippet.publishedAt)  > new Date(elem2.snippet.publishedAt) ? 1 : -1;
+        return (elem1: YoutubeCard, elem2: YoutubeCard) => new Date(elem1.creationDate)  > new Date(elem2.creationDate) ? 1 : -1;
       default:
-        return (elem1: IVideo, elem2: IVideo) => Number(elem2.statistics.viewCount)  - Number(elem1.statistics.viewCount);
+        return (elem1: YoutubeCard, elem2: YoutubeCard) => Number(elem2.statictics.viewCount)  - Number(elem1.statictics.viewCount);
     }
   }
 

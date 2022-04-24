@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>Create new card</mat-card-title>
   </mat-card-header>
-  <form [formGroup]="groupControl" class="example-form">
+  <form [formGroup]="groupControl" (ngSubmit)="createCard()" class="example-form">
     <mat-card-content>
       <mat-form-field class="example-full-width">
         <input formControlName="titleControl" matInput placeholder="{{placeholder.title}}">

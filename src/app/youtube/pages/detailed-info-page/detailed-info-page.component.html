@@ -1,13 +1,13 @@
 <mat-card *ngIf="hasData" class="example-card">
-  <img src="{{video?.snippet?.thumbnails?.high?.url}}">
+  <img src="{{video?.linkImage}}">
   <div class="information">
     <div class="title_container">
-      <mat-card-title>{{video?.snippet?.localized?.title}}</mat-card-title>
-      <span class="date">{{video?.snippet?.publishedAt | date : 'fullDate'}}</span>
+      <mat-card-title>{{video?.title}}</mat-card-title>
+      <span class="date">{{video?.creationDate | date : 'fullDate'}}</span>
     </div>
     <mat-card-subtitle>Description:</mat-card-subtitle>
-    <mat-card-content>{{video?.snippet?.localized?.description}}</mat-card-content>
-  <app-statictics-count [statictics]="video?.statistics"></app-statictics-count>
+    <mat-card-content>{{video?.description}}</mat-card-content>
+  <app-statictics-count [statictics]="video?.statictics"></app-statictics-count>
   </div>
   <div class="back-button" (click)="goHome()">&lt;</div>
 </mat-card>

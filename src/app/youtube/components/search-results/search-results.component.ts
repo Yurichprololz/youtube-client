@@ -4,7 +4,8 @@ import { SearchService } from '@src/app/core/services/search.service';
 import { SortDirectionService } from '../../services/sort-direction.service';
 import { FilterByKeyService } from '../../services/filter-by-key.service';
 import { ISubsiption } from '@src/app/shared/models/subscrible-search-result.model';
-import { IVideo } from '@shared/models/videos.model';
+import {  Store } from '@ngrx/store';
+import { selectAllCards } from '@src/app/redux/selectors/app.selector';
 
 @Component({
   selector: 'app-search-results',
@@ -17,7 +18,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
 
   filterByKeys = '';
 
-  videos: IVideo[] | null = null;
+  videos$ = this.store.select(selectAllCards);
 
   subscrible: ISubsiption = {
     search: null,
@@ -28,21 +29,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy{
   constructor(
     private searchService: SearchService,
     private sortService: SortDirectionService,
-    private filterService: FilterByKeyService) {
+    private filterService: FilterByKeyService,
+    private store: Store) {
   }
 
   ngOnInit() {
-
-    this.searchService.searchList()
-      .subscribe({
-        next:(video) => {
-          this.videos = video;
-        },
-        error:(error) => {
-          console.log(error);
-          this.videos = [];
-        },
-      });
+    this.subscrible.search = this.searchService.searchList()
+      .subscribe();
 
     this.subscrible.sort = this.sortService.directionEmit.subscribe(
       () => this.sortBy = this.sortService.getValue(),
