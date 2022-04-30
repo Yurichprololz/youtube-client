@@ -1,7 +1,0 @@
-<div class="wrap-panel">
-  <span>Sorting by:</span>
-  <button (click)="changeSortByDate()" appSortArrows [isSortByView]="false">date</button>
-  <button (click)="changeSortByView()" appSortArrows [isSortByView]="true">count of views</button>
-  <span>by word or sentance</span>
-  <input type="text" [(ngModel)]="byKeys" (input)="sendByKeys()">
-</div>

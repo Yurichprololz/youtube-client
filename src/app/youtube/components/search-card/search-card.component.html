@@ -1,6 +1,0 @@
-<div [appColorizeBorder] = "video?.creationDate" class="card">
-  <app-thumbnail [thumbnailUrl] = "video?.linkImage"></app-thumbnail>
-  <app-statictics-count *ngIf="youtubeVideo" [statictics] = "youtubeVideo?.statictics"> </app-statictics-count>
-  <app-video-name [title] ="video?.title"></app-video-name>
-  <app-more-button *ngIf="youtubeVideo" [id] = "youtubeVideo?.id"></app-more-button>
-</div>
